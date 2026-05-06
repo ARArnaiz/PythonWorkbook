@@ -1,0 +1,293 @@
+TOPIC . . . COMMENT
+
+The Structure of Unscientific Revolutions
+
+In the view of many linguists working in syntax Chomsky's (1995), (1998),
+and (1999) minimalist program (MP) constitutes a major paradigm change
+in the theory of grammar. On the Government Binding (GB) model the
+well-formedness of a sentence is determined by a set of conditions which
+apply locally to each element in the sequence of structures that comprises
+its derivation. Therefore, GB represented a move towards the constraint-
+based approach that characterizes many non-derivational theories, such as
+HPSG and LFG. By contrast, in addition to local constraints on operations
+and the structures they produce, the MP adds economy principles that apply
+either globally to sets of alternative derivations (Chomsky (1995)), or
+locally to sets of possible operations at each point in a derivation (Collins
+(1997) and Yang (1997)). Both the foundational assumptions of the MP
+and the way in which these have come to be accepted by a large number of
+linguists previously working within GB raise a number of important issues
+concerning the nature of theory construction and scientific discussion in
+the field.
+
+Underlying the economy principles of the MP is the idea that grammar is a
+perfect computational system for mapping a selection of lexical items (a
+numeration) to a pair of interfaces <LF,PF> with conceptual
+(semantic-pragmatic) and articulatory (phonetic) cognitive modules,
+respectively. The well-formedness conditions on LF and PF are externally
+imposed by interpretability requirements of the modules to which they
+provide interfaces. The syntactic component of a grammar provides an
+optimal derivation from lexical numerations to interface representations.
+Hence, economy principles ensure the efficiency of the mapping. The
+grammar exhibits what Chomsky refers to as virtual conceptual necessity
+in that its principles and operations provide the minimal devices required
+to achieve optimal derivations from lexical numerations to well-formed
+<LF,PF> pairs.
+
+A significant problem with this approach is that Chomsky does not
+clarify the notion of perfection or optimality as a property of grammar.
+
+---
+
+[Page 2]
+
+Attempting to render this concept precise within the MP leads to severe
+problems. Chomsky's claim that grammar is a perfect system cannot mean
+that it has a relatively low degree of computational complexity as compared
+to other imaginable systems of formal grammar, as this is clearly not the
+case. Moreover, economy principles, both global and local, add a
+significant degree of complexity to the MP model of grammar that local
+constraint-based grammars avoid.[1]
+
+Chomsky does not intend optimality to be identified with the satisfaction
+of a maximal number of defeasible local constraints, as in Optimality
+Theory. He avoids the use of ranked defeasible conditions, and he treats
+perfection as a property of grammar rather than a relative feature of a
+derivation.
+
+Perfection can also not be identified with biological efficiency, because
+there is no obvious sense in which the language faculty is a more or less
+efficient subsystem of the human organism than any other cognitive function.
+If it is to be judged as optimal in a biological sense, the obvious question
+is in comparison to what. As no basis for such a comparison is offered, the
+notion of grammar as a biologically optimal system is quite meaningless.
+
+Finally, one may suggest that the notion of perfection that Chomsky has in
+mind is based upon an analogy with the minima and maxima principles of
+physics. So, for example, air pressure in a soap bubble produces a spherical
+shape as the optimal geometric design for distributing this pressure.
+Similarly, light reflecting off a mirror takes the path of least time between
+two points. If this is, in fact, the sort of optimality that Chomsky has in
+mind, then it has no place in the theory of grammar. Minimization/
+maximization principles are derived from deeper physical properties of the
+particles (waves, vectors, etc.) which satisfy them. They follow from the
+subatomic structure and attributes of these particles, and are not themselves
+basic elements of the theory. Hence they have no independent explanatory
+status within physics, but are reducible to other principles. By contrast, the
+MP takes economy conditions to be essential elements of the grammar and
+the optimality which they encode to be one of its defining properties.
+
+It seems, then, that the foundational assumption of the MP rests upon an
+obscure metaphor rather than a precise claim with clear empirical content.
+In fact, the MP looks like an awkward transcendental deduction of Universal
+Grammar in which its adherents attempt to derive the formal properties
+
+[1] See Johnson and Lappin (1997) and (1999) for detailed discussion of this point, as
+well as extensive critical treatment of some of the conceptual and empirical problems raised
+by the MP. For important observations reflecting alternative conceptions of grammatical
+architecture, see also Jackendoff (1997) and Pollard (1997).
+
+---
+
+[Page 3]
+
+of natural language by speculating on the set of operations and conditions
+that provide the shortest route from a lexical numeration to a pair of LF
+and PF representations. The distance metric invoked in these speculations
+remains undefined and ungrounded in empirical considerations.
+
+Vagueness and imprecision are not exactly unknown in much of the history
+of linguistic theorizing. Taken in isolation the conceptual defects of the
+derivational economy notion are probably no worse in kind than earlier
+examples might be. What is altogether mysterious from a purely scientific
+point of view is the rapidity with which a substantial number of
+investigators, who had significant research commitments in the
+Government-Binding framework, have abandoned that framework and much
+of its conceptual inventory, virtually overnight. In its place they have
+adopted an approach which, as far as we can tell, is in no way superior with
+respect to either predictive capabilities nor explanatory power. Still more
+remarkable is the widespread perception that a novel approach with no more
+'battle-tested results' to its credit (and far narrower cross-linguistic
+coverage) than its predecessor represents a conceptual breakthrough for
+generative grammar, advancing it to the status enjoyed by the hardest of
+physical sciences. Consider (as just one example) the strangely imaginative
+assertion by Piatelli-Palmarini in his foreword to Uriagareka's Rhyme and
+Reason that minimalist grammar
+
+"is well on its way to becoming a full-blown natural science, offering a serious promise
+of an advanced field of scientific inquiry whose idealizations, abstractions and deductions
+will eventually match in depth and subtlety those of the most advanced domains of modern
+science. Generative grammar is turning into a natural science already, because of what it is
+now, not because of what it might one day turn into . . ."
+
+And Uriagareka's fictional expositor of minimalism, the Linguist, echoes
+this peculiar claim in his proclamation that 'this degree of elegance [of UG]
+seems to be extraordinary. This is what I think makes linguistics closer to
+physics than biology, somewhat mysteriously' (p. 60). Much of
+Uriagareka's book consists in invoking a variety of scientific topics that
+have become the staple cliches of trendy 'parascientific' chit-chat – chaos
+theory, turbulence, emergent macroscopic phenomena, Fibonacci sequences,
+the thermodynamics of living systems and so on – apparently on the
+assumption that these issues, so airily cited in the book, have something to
+do with the empirical content of the linguistic notions he advocates.
+
+This groundless aura of scientism is used to promote the view that
+minimalist theory has brought the study of syntax to a level of precision and
+empirical coverage comparable to that of chemistry and physics. In fact,
+Uriagareka does not manage to specify even a remotely credible connection
+between the concepts and methodology of the MP and those of the
+
+---
+
+[Page 4]
+
+natural sciences. Clearly a significant number of former GB adherents must
+share Uriagareka's view. Why else would they simply discard a theoretical
+framework which they had previously thought to be the best one available
+for achieving genuine insight into the nature of human linguistic ability?
+
+A comparison with paradigm change, at the level of the individual
+researcher, in the more established sciences may be instructive. Arthur
+Compton won the 1927 Nobel Prize in physics for his quantum-theoretic
+explanation of wavelength shifts in high-frequency X-ray/electron
+scattering. He was not a devotee of quantum physics when he began his
+research on the problem, and he used his considerable technical gifts to
+defend classical electrodynamics by constructing an account based on a
+contemporary version of Maxwell's theory of electromagnetism. It was the
+irreducible discrepancy between his classically predicted results and the
+observed angle-dependent frequency spectrum of the output radiation that
+led him to adopt a quantum mechanical account, which yielded a precise and
+accurate prediction of the observed spectrum. Only this dramatic
+experimental evidence for quantum physics caused Compton to give up the
+classical view. A generation earlier, physicists had adopted special
+relativity because of its success in predicting experimental and
+observational outcomes that classical mechanics failed to explain. In the
+following generation they came to embrace quantum field theory because of
+its empirical superiority to standard quantum mechanics in accounting for
+phenomena such as the Lamb shift in the hydrogen atom energy spectrum.
+In none of these cases did scientists abandon the highly successful models
+that they and their predecessors had developed except under pressure of
+compelling scientific motivation. This consisted (primarily) in the emergence
+of a new formalism that preserved the results of the previous paradigm while
+contributing an empirically grounded model of a phenomenon that remained
+unexplained – and in principle unexplainable – on the earlier account.
+
+If linguists wish to use the practices followed in the natural sciences as a
+guide, then it would be reasonable to expect the catalyst for the transition
+from GB to the MP to be a significant body of results that follow directly
+from minimalist principles, but are unavailable on any plausible version of
+GB theory. But we see nothing of the kind in the comparison between the MP
+and earlier avatars of transformational grammar. Why, then, are we witness
+to a mass rejection of the previous decade and a half of linguistic theory?
+Even the most cursory examination of the way in which physics conducts its
+daily business and of the results that it has achieved is sufficient to expose
+Piatelli-Palmarini's and Uriagareka's claims as radically misguided. The MP
+simply does not bear serious comparison, for either accuracy or elegance, to
+Lagrange's eighteenth century formulation
+
+---
+
+[Page 5]
+
+of classical mechanics, let alone to the sophisticated contemporary
+subdisciplines of the physical and mathematical sciences that Rhyme and
+Reason invokes, mantra-like, to such little effect.
+
+The ease and speed with which so many GB theorists have discarded the
+theoretical framework in which they had invested so much research effort
+and embraced the bizarrely vague and unmotivated assumptions of the MP
+thus suggest that in large sections of the field theoretical commitment has
+little to do with evidence or argument. It is entirely reasonable for Chomsky
+to pursue his own research program on the basis of his intuition that it
+provides an interesting and potentially fruitful line of inquiry. Clearly, the
+burden of evidence and persuasion is on him to show us that this program is
+worth taking up. What is not readily comprehensible is that large numbers
+of researchers should substitute one theory for another simply on the basis
+of Chomsky's personal authority, without subjecting his assumptions to the
+sort of critical evaluation that they would normally apply to theoretical
+innovations proposed under different authorship.
+
+Again, comparison with the hard sciences is instructive. Einstein, perhaps
+the greatest physicist ever, and Hilbert, one of the seminal figures in the
+history of mathematics, were both profoundly mistaken about the most
+important components of their respective mature scientific programs.
+Einstein's efforts to formulate a unified theory of the gravitational and
+electromagnetic field was undermined not only by his omission of nuclear
+forces, but by his effort to extend the Riemannian geometric formalism of
+general relativity to embrace the electromagnetic field. While continuing to
+venerate him the rest of the physics community moved in an entirely
+different direction, one that had far greater empirical success. Hilbert's
+formalist program for mathematics consisted in an effort to reduce truth to
+provability. Kurt Gödel showed this program to be in principle untenable in
+1930, when he proved the incompleteness of any mathematical system with
+sufficient expressive power to encode elementary number theory. He was an
+obscure mathematician at the time, almost unknown outside of Vienna. The
+difference in reputation between Hilbert and Gödel did not prevent the
+complete collapse of the formalist program. In fact, within a decade Hilbert,
+in a book co-authored with Paul Bernays, constructed an original proof of
+Gödel's incompleteness theorem, showing that he fully appreciated the
+implications of Gödel's work for his own program.
+
+These incidents in the history of science show that the very greatest of
+minds can be deeply mistaken. More importantly, they indicate clearly that
+in real science, arguments from authority do not, in general, determine the
+direction in which a field develops. There is no sense in which the scientific
+status of the GB framework approaches that of physics at any
+
+---
+
+[Page 6]
+
+period (or even, for that matter, that of contemporary geology or biology).
+However, the equanimity with which so many of its adherents abandoned it
+primarily on the strength of Chomsky's personal speculations, in the absence
+of any compelling empirical motivation, is a disturbing reflection of the fact
+that the constraints of evidence and rational argument appear to play a
+strikingly tenuous role in generative grammar's transformationalist branch.
+
+In the introduction to Chapter 4, Chomsky (1995) says:
+
+"It is, furthermore, far from obvious that language should have anything at all like the
+character postulated in the Minimalist Program, which is just that: a research program
+concerned with filling the gaps and determining the answers to the basic questions raised
+in the opening paragraph of the introduction, in particular, the question 'How "perfect" is
+language?'"
+
+Just so. Given the lack of any obvious content in the basic question that the
+MP takes as its starting point, it is particularly surprising that so many
+linguists have chosen to adopt its assumptions without demanding additional
+clarification or empirical motivation. We know of no serious scientific
+discipline where theoretical paradigms are granted large scale acceptance in
+such a cavalier and uncritical manner. It should come as no surprise, then,
+that linguists who exhibit so little respect for the basic theoretical
+assumptions that guide their own work should be relatively immune from
+interest in work done in alternative theoretical paradigms. We seem forced
+to the conclusion that a not insignificant part of our field is labouring under
+the manufacture of consent.
+
+REFERENCES
+
+Chomsky, Noam. 1995. The Minimalist Program, MIT Press, Cambridge, MA.
+Chomsky, Noam. 1998. Minimalist Inquiries: The Framework, manuscript, MIT, Cambridge, MA.
+Chomsky, Noam. 1999. Derivation by Phases, manuscript, MIT, Cambridge, MA.
+Collins, Christopher. 1997. Local Economy, MIT Press, Cambridge, MA.
+Jackendoff, Ray. 1997. The Architecture of the Language Faculty, MIT Press, Cambridge, MA.
+Johnson, David and Shalom Lappin. 1997. 'A Critique of the Minimalist Program', Linguistics and Philosophy 20.
+Johnson, David and Shalom Lappin. 1999. Local Constraints vs. Economy, CSLI, Stanford, CA.
+Pollard, Carl. 1997. 'The Nature of Constraint-Based Grammar', Linguistic Research, Language Education and Research Institute, Kyung-Hee University, pp. 1–18.
+Uriagareka, Juan. 1998. Rhyme and Reason, MIT Press, Cambridge, MA.
+
+---
+
+[Page 7]
+
+Yang, C. 1997. Minimal Computation: Derivation of Syntactic Structures, unpublished MSc. thesis, Artificial Intelligence Laboratory, MIT.
+
+Received June 7, 2000
+Revised June 14, 2000
+
+King's College, London — SHALOM LAPPIN (lappin@dcs.kcl.ac.uk)
+Ohio State University — ROBERT D. LEVINE (levine@ling.ohio-state.edu)
+IBM T.J. Watson Research Center — DAVID E. JOHNSON (dejohns@us.ibm.com)
+
+Note: The views expressed in TOPIC ... COMMENT are those of the author(s). They should
+not be construed as representing either the editor or the publisher of NLLT.

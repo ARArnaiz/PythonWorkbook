@@ -1,0 +1,15 @@
+gitignore# PyCharm project files
+.idea/
+
+# Virtual environment
+.venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Distribution / build
+dist/
+build/
+*.egg-info/

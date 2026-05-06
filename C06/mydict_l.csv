@@ -1,0 +1,5 @@
+John,35,<class 'int'>
+Mary,28,<class 'int'>
+Alice,22,<class 'int'>
+Bob,30,<class 'int'>
+Anne,unknown,<class 'str'>

@@ -1,0 +1,227 @@
+[
+  {
+    "filename": "apache_logs.txt",
+    "size": 2370789,
+    "mtime": 1776978876.0
+  },
+  {
+    "filename": "apache_log_chatgpt.txt",
+    "size": 5068,
+    "mtime": 1776877312.0
+  },
+  {
+    "filename": "apache_log_DeepSeek.txt",
+    "size": 1688,
+    "mtime": 1776876737.0
+  },
+  {
+    "filename": "apache_log_Gemini.txt",
+    "size": 3175,
+    "mtime": 1776877313.0
+  },
+  {
+    "filename": "article001.pdf",
+    "size": 27495,
+    "mtime": 1003504208.0
+  },
+  {
+    "filename": "article001.txt",
+    "size": 17126,
+    "mtime": 1776268043.0
+  },
+  {
+    "filename": "article001_redacted.txt",
+    "size": 17419,
+    "mtime": 1776274468.0
+  },
+  {
+    "filename": "file_info.json",
+    "size": 3384,
+    "mtime": 1777705406.1593184
+  },
+  {
+    "filename": "file_props.json",
+    "size": 3060,
+    "mtime": 1777706099.7037294
+  },
+  {
+    "filename": "intro.txt",
+    "size": 28094,
+    "mtime": 1760932315.0
+  },
+  {
+    "filename": "linux-etc-passwd.txt",
+    "size": 2683,
+    "mtime": 1776128567.9074166
+  },
+  {
+    "filename": "mini-access-log.txt",
+    "size": 36562,
+    "mtime": 1776128567.9166598
+  },
+  {
+    "filename": "my_l06_18.py",
+    "size": 1141,
+    "mtime": 1777067973.6778347
+  },
+  {
+    "filename": "my_l06_18_b1.py",
+    "size": 1654,
+    "mtime": 1777073394.7178786
+  },
+  {
+    "filename": "my_l06_18_b2.py",
+    "size": 1870,
+    "mtime": 1777081418.338094
+  },
+  {
+    "filename": "my_l06_18_b3.py",
+    "size": 1876,
+    "mtime": 1777096039.972991
+  },
+  {
+    "filename": "my_l06_19.py",
+    "size": 2615,
+    "mtime": 1777230449.7947094
+  },
+  {
+    "filename": "my_l06_19_b1.py",
+    "size": 1698,
+    "mtime": 1777239021.088384
+  },
+  {
+    "filename": "my_l06_19_b2.py",
+    "size": 1445,
+    "mtime": 1777246370.4570615
+  },
+  {
+    "filename": "my_l06_19_b3.py",
+    "size": 1131,
+    "mtime": 1777267834.172325
+  },
+  {
+    "filename": "my_l06_20.py",
+    "size": 2552,
+    "mtime": 1777316170.0
+  },
+  {
+    "filename": "my_l06_20_b1.py",
+    "size": 2810,
+    "mtime": 1777347630.2499757
+  },
+  {
+    "filename": "my_l06_20_b2.py",
+    "size": 922,
+    "mtime": 1777349746.864215
+  },
+  {
+    "filename": "my_l06_20_b3.py",
+    "size": 965,
+    "mtime": 1777352300.496539
+  },
+  {
+    "filename": "my_l06_21.py",
+    "size": 2268,
+    "mtime": 1777441268.1466439
+  },
+  {
+    "filename": "my_l06_21_b1.py",
+    "size": 1841,
+    "mtime": 1777445128.897492
+  },
+  {
+    "filename": "my_l06_21_b2.py",
+    "size": 1547,
+    "mtime": 1777513340.7428102
+  },
+  {
+    "filename": "my_l06_21_b3.py",
+    "size": 1478,
+    "mtime": 1777515292.974097
+  },
+  {
+    "filename": "my_l06_22.py",
+    "size": 1279,
+    "mtime": 1777702394.579635
+  },
+  {
+    "filename": "my_l06_22_b1.py",
+    "size": 1718,
+    "mtime": 1777702394.5766368
+  },
+  {
+    "filename": "my_l06_22_b2.py",
+    "size": 1228,
+    "mtime": 1777701300.2166274
+  },
+  {
+    "filename": "my_l06_22_b3.py",
+    "size": 2052,
+    "mtime": 1777701345.048742
+  },
+  {
+    "filename": "my_l06_23.py",
+    "size": 2596,
+    "mtime": 1777683086.7120242
+  },
+  {
+    "filename": "my_l06_23_b1.py",
+    "size": 1329,
+    "mtime": 1777686990.766031
+  },
+  {
+    "filename": "my_l06_23_b2.py",
+    "size": 1863,
+    "mtime": 1777701161.1436796
+  },
+  {
+    "filename": "my_l06_23_b3.py",
+    "size": 3092,
+    "mtime": 1777706099.5584662
+  },
+  {
+    "filename": "numeric_tab_data.txt",
+    "size": 664,
+    "mtime": 1777077625.7289026
+  },
+  {
+    "filename": "nums.txt",
+    "size": 42,
+    "mtime": 1776128567.9226606
+  },
+  {
+    "filename": "passwd.txt",
+    "size": 5633,
+    "mtime": 1777177096.3168795
+  },
+  {
+    "filename": "pyproject.toml",
+    "size": 142,
+    "mtime": 1777511730.5447745
+  },
+  {
+    "filename": "shoe-data.txt",
+    "size": 1676,
+    "mtime": 1776128567.9276726
+  },
+  {
+    "filename": "tab_data.txt",
+    "size": 49,
+    "mtime": 1777075215.207896
+  },
+  {
+    "filename": "test.py",
+    "size": 1989,
+    "mtime": 1776658210.86139
+  },
+  {
+    "filename": "uv.lock",
+    "size": 47202,
+    "mtime": 1777511730.547776
+  },
+  {
+    "filename": "wcfile.txt",
+    "size": 165,
+    "mtime": 1776128567.9336603
+  }
+]
