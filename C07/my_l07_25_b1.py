@@ -30,7 +30,7 @@ def copyfile_manual_c(source_file: str, *dest_files: str) -> None:
         with open(dest_file, 'wb') as dst:
             dst.write(content)
 
-copyfile("wcfile.txt", "wcfile_copy.txt", "wcfile_copy2.txt", "wcfile_copy3.txt", "wcfile_copy4.txt")
+copyfile("../wcfile.txt", "wcfile_copy.txt", "wcfile_copy2.txt", "wcfile_copy3.txt", "wcfile_copy4.txt")
 
 def copyfile_l(infilename, *args):
     for outfilename in args:
