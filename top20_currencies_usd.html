@@ -1,0 +1,149 @@
+
+<style>
+  #cur-search { width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+  .sort-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
+  .sort-row button { font-size: 13px; padding: 4px 12px; cursor: pointer; }
+  .sort-row button.active { background: var(--color-background-secondary); font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-align: left; padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); white-space: nowrap; cursor: pointer; }
+  th:hover { color: var(--color-text-primary); }
+  td { font-size: 13px; padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  .code { font-family: monospace; font-size: 12px; font-weight: 600; background: var(--color-background-secondary); padding: 2px 6px; border-radius: 4px; }
+  .bar-wrap { width: 100%; background: var(--color-background-secondary); border-radius: 3px; height: 6px; overflow: hidden; min-width: 60px; }
+  .bar-fill { height: 100%; border-radius: 3px; background: var(--color-accent-primary, #2563eb); }
+  .rate-val { font-weight: 500; font-variant-numeric: tabular-nums; }
+  .inv-val { color: var(--color-text-secondary); font-size: 12px; }
+  .flag { font-size: 18px; line-height: 1; }
+  .note { font-size: 11px; color: var(--color-text-secondary); margin-top: 14px; line-height: 1.6; }
+  .region-tag { font-size: 11px; padding: 2px 7px; border-radius: 10px; display: inline-block; }
+  .r-eu { background:#EEF2FF; color:#3730A3; }
+  .r-as { background:#F0FDF4; color:#166534; }
+  .r-me { background:#FFF7ED; color:#9A3412; }
+  .r-am { background:#FDF4FF; color:#7E22CE; }
+  .r-oc { background:#F0F9FF; color:#0369A1; }
+  @media (prefers-color-scheme: dark) {
+    .r-eu { background:#312E81; color:#C7D2FE; }
+    .r-as { background:#14532D; color:#BBF7D0; }
+    .r-me { background:#7C2D12; color:#FED7AA; }
+    .r-am { background:#581C87; color:#E9D5FF; }
+    .r-oc { background:#0C4A6E; color:#BAE6FD; }
+  }
+</style>
+
+<div style="padding: 0.5rem 0 0;">
+  <input id="cur-search" type="text" placeholder="Search currency or code…" oninput="renderC()" />
+  <div class="sort-row">
+    <span style="font-size:13px;color:var(--color-text-secondary);">Sort by:</span>
+    <button id="btn-rank" class="active" onclick="sortC('rank')">Rank</button>
+    <button id="btn-rate" onclick="sortC('usdPer')">Rate (↑ strongest)</button>
+    <button id="btn-name" onclick="sortC('name')">Name</button>
+  </div>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortC('rank')" style="width:28px">#</th>
+          <th style="width:36px"></th>
+          <th onclick="sortC('name')">Currency</th>
+          <th onclick="sortC('code')" style="width:52px">Code</th>
+          <th onclick="sortC('usdPer')">1 USD =</th>
+          <th onclick="sortC('perUsd')">1 unit = USD</th>
+          <th style="width:100px">Strength</th>
+          <th onclick="sortC('region')" style="width:80px">Region</th>
+        </tr>
+      </thead>
+      <tbody id="c-tbody"></tbody>
+    </table>
+  </div>
+  <p class="note">
+    Exchange rates as of <strong>May 16, 2026</strong> (x-rates.com / XS Markets). Ranked by nominal value per USD (strongest first).<br>
+    "Strongest" = highest face value vs. USD, not economic size. Major reserve currencies (EUR, GBP, JPY, etc.) are included for global relevance.
+  </p>
+</div>
+
+<script>
+// Data: usdPer = units of currency per 1 USD; perUsd = 1 unit of currency in USD
+const currencies = [
+  {rank:1,  flag:"🇰🇼", name:"Kuwaiti Dinar",         code:"KWD", usdPer:0.3069,    perUsd:3.259,    region:"ME"},
+  {rank:2,  flag:"🇧🇭", name:"Bahraini Dinar",         code:"BHD", usdPer:0.3760,    perUsd:2.660,    region:"ME"},
+  {rank:3,  flag:"🇴🇲", name:"Omani Rial",             code:"OMR", usdPer:0.3845,    perUsd:2.601,    region:"ME"},
+  {rank:4,  flag:"🇯🇴", name:"Jordanian Dinar",        code:"JOD", usdPer:0.7090,    perUsd:1.410,    region:"ME"},
+  {rank:5,  flag:"🇬🇧", name:"British Pound",          code:"GBP", usdPer:0.7502,    perUsd:1.333,    region:"EU"},
+  {rank:6,  flag:"🇨🇭", name:"Swiss Franc",            code:"CHF", usdPer:0.7874,    perUsd:1.270,    region:"EU"},
+  {rank:7,  flag:"🇪🇺", name:"Euro",                   code:"EUR", usdPer:0.8602,    perUsd:1.162,    region:"EU"},
+  {rank:8,  flag:"🇺🇸", name:"US Dollar",              code:"USD", usdPer:1.0000,    perUsd:1.000,    region:"AM"},
+  {rank:9,  flag:"🇸🇬", name:"Singapore Dollar",       code:"SGD", usdPer:1.2804,    perUsd:0.7810,   region:"AS"},
+  {rank:10, flag:"🇨🇦", name:"Canadian Dollar",        code:"CAD", usdPer:1.3752,    perUsd:0.7272,   region:"AM"},
+  {rank:11, flag:"🇦🇺", name:"Australian Dollar",      code:"AUD", usdPer:1.3988,    perUsd:0.7149,   region:"OC"},
+  {rank:12, flag:"🇨🇳", name:"Chinese Yuan",           code:"CNY", usdPer:6.8080,    perUsd:0.1469,   region:"AS"},
+  {rank:13, flag:"🇸🇦", name:"Saudi Riyal",            code:"SAR", usdPer:3.7500,    perUsd:0.2667,   region:"ME"},
+  {rank:14, flag:"🇦🇪", name:"UAE Dirham",             code:"AED", usdPer:3.6725,    perUsd:0.2723,   region:"ME"},
+  {rank:15, flag:"🇯🇵", name:"Japanese Yen",           code:"JPY", usdPer:158.666,   perUsd:0.006303, region:"AS"},
+  {rank:16, flag:"🇰🇷", name:"South Korean Won",       code:"KRW", usdPer:1376.0,    perUsd:0.000727, region:"AS"},
+  {rank:17, flag:"🇮🇳", name:"Indian Rupee",           code:"INR", usdPer:96.072,    perUsd:0.01041,  region:"AS"},
+  {rank:18, flag:"🇧🇷", name:"Brazilian Real",         code:"BRL", usdPer:5.0226,    perUsd:0.1991,   region:"AM"},
+  {rank:19, flag:"🇲🇽", name:"Mexican Peso",           code:"MXN", usdPer:19.45,     perUsd:0.05141,  region:"AM"},
+  {rank:20, flag:"🇿🇦", name:"South African Rand",     code:"ZAR", usdPer:18.12,     perUsd:0.05519,  region:"AS"},
+];
+
+const regionLabel = {EU:"Europe", AS:"Asia", ME:"Middle East", AM:"Americas", OC:"Oceania"};
+const regionCls   = {EU:"r-eu",  AS:"r-as", ME:"r-me",        AM:"r-am",     OC:"r-oc"};
+
+// Strength bar: log scale so KWD and JPY both get readable bars
+const allPer = currencies.map(c => c.perUsd);
+const maxPer = Math.max(...allPer);
+const minPer = Math.min(...allPer);
+function barPct(perUsd) {
+  // log scale
+  const logVal = Math.log10(perUsd) - Math.log10(minPer);
+  const logRange = Math.log10(maxPer) - Math.log10(minPer);
+  return Math.round((logVal / logRange) * 100);
+}
+
+function fmt(n) {
+  if (n >= 1000) return n.toLocaleString('en-US', {maximumFractionDigits:2});
+  if (n >= 1)    return n.toFixed(4);
+  if (n >= 0.01) return n.toFixed(5);
+  return n.toFixed(6);
+}
+
+let sortKey = 'rank', sortDir = 1;
+function sortC(k) {
+  if (sortKey === k) sortDir *= -1;
+  else { sortKey = k; sortDir = 1; }
+  document.querySelectorAll('.sort-row button').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('btn-' + k);
+  if (el) el.classList.add('active');
+  renderC();
+}
+
+function renderC() {
+  const q = document.getElementById('cur-search').value.toLowerCase();
+  let data = currencies.filter(c =>
+    c.name.toLowerCase().includes(q) ||
+    c.code.toLowerCase().includes(q) ||
+    regionLabel[c.region].toLowerCase().includes(q)
+  );
+  data = [...data].sort((a, b) => {
+    let va = a[sortKey], vb = b[sortKey];
+    if (typeof va === 'string') return sortDir * va.localeCompare(vb);
+    return sortDir * (va - vb);
+  });
+  document.getElementById('c-tbody').innerHTML = data.map(c => {
+    const pct = barPct(c.perUsd);
+    const isUSD = c.code === 'USD';
+    return `<tr>
+      <td style="color:var(--color-text-secondary);font-size:12px;">${c.rank}</td>
+      <td class="flag">${c.flag}</td>
+      <td>${c.name}</td>
+      <td><span class="code">${c.code}</span></td>
+      <td class="rate-val">${isUSD ? '1.0000' : fmt(c.usdPer)}</td>
+      <td class="inv-val">$${fmt(c.perUsd)}</td>
+      <td style="padding-right:12px;"><div class="bar-wrap"><div class="bar-fill" style="width:${pct}%"></div></div></td>
+      <td><span class="region-tag ${regionCls[c.region]}">${regionLabel[c.region]}</span></td>
+    </tr>`;
+  }).join('');
+}
+renderC();
+</script>

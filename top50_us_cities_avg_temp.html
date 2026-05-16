@@ -1,0 +1,139 @@
+
+<h2 class="sr-only">Top 50 US cities ranked by average annual temperature in Fahrenheit</h2>
+
+<style>
+  #search-input { width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+  .sort-btns { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .sort-btns button { font-size: 13px; padding: 4px 12px; cursor: pointer; }
+  .sort-btns button.active { background: var(--color-background-secondary); font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  th { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-align: left; padding: 6px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  td { font-size: 14px; padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); }
+  tr:last-child td { border-bottom: none; }
+  .bar-wrap { width: 100%; background: var(--color-background-secondary); border-radius: 3px; height: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; }
+  .rank { color: var(--color-text-secondary); font-size: 12px; }
+  .temp-val { font-weight: 500; min-width: 42px; display: inline-block; }
+  th:nth-child(1) { width: 32px; }
+  th:nth-child(2) { width: 38%; }
+  th:nth-child(3) { width: 60px; }
+  th:nth-child(4) { width: auto; }
+</style>
+
+<div style="padding: 0.5rem 0 0;">
+  <input id="search-input" type="text" placeholder="Search cities…" oninput="renderTable()" />
+  <div class="sort-btns">
+    <span style="font-size:13px;color:var(--color-text-secondary);align-self:center;">Sort by:</span>
+    <button id="btn-rank" class="active" onclick="setSort('rank')">Rank</button>
+    <button id="btn-temp" onclick="setSort('temp')">Temperature</button>
+    <button id="btn-name" onclick="setSort('name')">City name</button>
+  </div>
+  <div style="overflow-x:auto;">
+    <table id="city-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>City</th>
+          <th>Avg °F</th>
+          <th style="padding-left:8px;">Range</th>
+        </tr>
+      </thead>
+      <tbody id="city-tbody"></tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:var(--color-text-secondary);margin-top:12px;">Average annual temperatures based on NOAA historical climate normals. Cities ranked by population.</p>
+</div>
+
+<script>
+const cities = [
+  {rank:1,  name:"New York, NY",          temp:55.0},
+  {rank:2,  name:"Los Angeles, CA",        temp:66.0},
+  {rank:3,  name:"Chicago, IL",            temp:50.0},
+  {rank:4,  name:"Houston, TX",            temp:70.0},
+  {rank:5,  name:"Phoenix, AZ",            temp:75.0},
+  {rank:6,  name:"Philadelphia, PA",       temp:55.5},
+  {rank:7,  name:"San Antonio, TX",        temp:70.0},
+  {rank:8,  name:"San Diego, CA",          temp:63.0},
+  {rank:9,  name:"Dallas, TX",             temp:67.0},
+  {rank:10, name:"Jacksonville, FL",       temp:69.0},
+  {rank:11, name:"Austin, TX",             temp:69.0},
+  {rank:12, name:"San Jose, CA",           temp:60.0},
+  {rank:13, name:"Fort Worth, TX",         temp:66.0},
+  {rank:14, name:"Columbus, OH",           temp:52.0},
+  {rank:15, name:"Charlotte, NC",          temp:60.0},
+  {rank:16, name:"Indianapolis, IN",       temp:52.0},
+  {rank:17, name:"San Francisco, CA",      temp:57.0},
+  {rank:18, name:"Seattle, WA",            temp:52.0},
+  {rank:19, name:"Denver, CO",             temp:50.0},
+  {rank:20, name:"Nashville, TN",          temp:60.0},
+  {rank:21, name:"Oklahoma City, OK",      temp:62.0},
+  {rank:22, name:"El Paso, TX",            temp:64.0},
+  {rank:23, name:"Washington, DC",         temp:58.0},
+  {rank:24, name:"Louisville, KY",         temp:57.0},
+  {rank:25, name:"Las Vegas, NV",          temp:67.0},
+  {rank:26, name:"Memphis, TN",            temp:63.0},
+  {rank:27, name:"Portland, OR",           temp:54.0},
+  {rank:28, name:"Baltimore, MD",          temp:57.0},
+  {rank:29, name:"Milwaukee, WI",          temp:46.0},
+  {rank:30, name:"Albuquerque, NM",        temp:56.0},
+  {rank:31, name:"Tucson, AZ",             temp:69.0},
+  {rank:32, name:"Fresno, CA",             temp:63.0},
+  {rank:33, name:"Sacramento, CA",         temp:61.0},
+  {rank:34, name:"Mesa, AZ",               temp:75.0},
+  {rank:35, name:"Kansas City, MO",        temp:56.0},
+  {rank:36, name:"Atlanta, GA",            temp:63.0},
+  {rank:37, name:"Omaha, NE",              temp:51.0},
+  {rank:38, name:"Colorado Springs, CO",   temp:47.0},
+  {rank:39, name:"Raleigh, NC",            temp:60.0},
+  {rank:40, name:"Long Beach, CA",         temp:65.0},
+  {rank:41, name:"Virginia Beach, VA",     temp:60.0},
+  {rank:42, name:"Minneapolis, MN",        temp:45.0},
+  {rank:43, name:"Tampa, FL",              temp:72.0},
+  {rank:44, name:"New Orleans, LA",        temp:70.0},
+  {rank:45, name:"Arlington, TX",          temp:67.0},
+  {rank:46, name:"Wichita, KS",            temp:57.0},
+  {rank:47, name:"Bakersfield, CA",        temp:65.0},
+  {rank:48, name:"Aurora, CO",             temp:50.0},
+  {rank:49, name:"Miami, FL",              temp:77.0},
+  {rank:50, name:"Cleveland, OH",          temp:50.0},
+];
+
+const minT = Math.min(...cities.map(c=>c.temp));
+const maxT = Math.max(...cities.map(c=>c.temp));
+
+function tempColor(t) {
+  const norm = (t - minT) / (maxT - minT);
+  if (norm < 0.33) return '#378ADD';
+  if (norm < 0.66) return '#EF9F27';
+  return '#D85A30';
+}
+
+let sortKey = 'rank';
+function setSort(k) {
+  sortKey = k;
+  document.querySelectorAll('.sort-btns button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + k).classList.add('active');
+  renderTable();
+}
+
+function renderTable() {
+  const q = document.getElementById('search-input').value.toLowerCase();
+  let data = cities.filter(c => c.name.toLowerCase().includes(q));
+  if (sortKey === 'temp') data = [...data].sort((a,b) => b.temp - a.temp);
+  else if (sortKey === 'name') data = [...data].sort((a,b) => a.name.localeCompare(b.name));
+  const tbody = document.getElementById('city-tbody');
+  tbody.innerHTML = data.map(c => {
+    const pct = Math.round((c.temp - minT) / (maxT - minT) * 100);
+    const col = tempColor(c.temp);
+    return `<tr>
+      <td class="rank">${c.rank}</td>
+      <td>${c.name}</td>
+      <td><span class="temp-val">${c.temp}°F</span></td>
+      <td style="padding-left:8px; vertical-align:middle;">
+        <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%;background:${col};"></div></div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+renderTable();
+</script>

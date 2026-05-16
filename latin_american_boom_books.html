@@ -1,0 +1,128 @@
+
+<h2 class="sr-only">20 most important books of the Latin American Boom with author, year, country, and approximate US paperback price</h2>
+
+<style>
+  #search-b { width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+  .sort-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
+  .sort-row button { font-size: 13px; padding: 4px 12px; cursor: pointer; }
+  .sort-row button.active { background: var(--color-background-secondary); font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; }
+  th { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-align: left; padding: 6px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); cursor: pointer; user-select: none; white-space: nowrap; }
+  th:hover { color: var(--color-text-primary); }
+  td { font-size: 13px; padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 10px; font-weight: 500; }
+  .tag-co { background: #E1F5EE; color: #0F6E56; }
+  .tag-ar { background: #EEEDFE; color: #3C3489; }
+  .tag-mx { background: #FAEEDA; color: #854F0B; }
+  .tag-pe { background: #FCEBEB; color: #A32D2D; }
+  .tag-cu { background: #E6F1FB; color: #185FA5; }
+  .tag-pa { background: #FBEAF0; color: #993556; }
+  .tag-gu { background: #EAF3DE; color: #3B6D11; }
+  @media (prefers-color-scheme: dark) {
+    .tag-co { background: #085041; color: #9FE1CB; }
+    .tag-ar { background: #3C3489; color: #CECBF6; }
+    .tag-mx { background: #633806; color: #FAC775; }
+    .tag-pe { background: #791F1F; color: #F7C1C1; }
+    .tag-cu { background: #0C447C; color: #B5D4F4; }
+    .tag-pa { background: #72243E; color: #F4C0D1; }
+    .tag-gu { background: #27500A; color: #C0DD97; }
+  }
+  .price { font-weight: 500; color: var(--color-text-primary); }
+  .title-en { color: var(--color-text-secondary); font-size: 12px; display: block; margin-top: 1px; }
+  .note { font-size: 11px; color: var(--color-text-secondary); margin-top: 14px; line-height: 1.5; }
+</style>
+
+<div style="padding: 0.5rem 0 0;">
+  <input id="search-b" type="text" placeholder="Search title or author…" oninput="renderB()" />
+  <div class="sort-row">
+    <span style="font-size:13px;color:var(--color-text-secondary);">Sort by:</span>
+    <button id="btn-rank" class="active" onclick="sortBy('rank')">Rank</button>
+    <button id="btn-year" onclick="sortBy('year')">Year</button>
+    <button id="btn-price" onclick="sortBy('price')">Price</button>
+    <button id="btn-author" onclick="sortBy('author')">Author</button>
+  </div>
+  <div style="overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortBy('rank')" style="width:28px">#</th>
+          <th onclick="sortBy('author')" style="width:22%">Author</th>
+          <th onclick="sortBy('title')">Title</th>
+          <th onclick="sortBy('year')" style="width:46px">Year</th>
+          <th onclick="sortBy('country')" style="width:60px">Country</th>
+          <th onclick="sortBy('price')" style="width:72px">Avg price</th>
+        </tr>
+      </thead>
+      <tbody id="b-tbody"></tbody>
+    </table>
+  </div>
+  <p class="note">Prices are approximate US retail for current English-language paperback editions (Amazon/B&N, May 2026). Some titles command a premium due to recent new translations or limited print runs. Prices for used copies are typically $3–$8.</p>
+</div>
+
+<script>
+const books = [
+  {rank:1,  author:"Gabriel García Márquez", title:"Cien años de soledad", en:"One Hundred Years of Solitude",         year:1967, country:"CO", price:17},
+  {rank:2,  author:"Julio Cortázar",          title:"Rayuela",             en:"Hopscotch",                               year:1963, country:"AR", price:18},
+  {rank:3,  author:"Mario Vargas Llosa",      title:"La ciudad y los perros", en:"The Time of the Hero",                year:1963, country:"PE", price:15},
+  {rank:4,  author:"Carlos Fuentes",          title:"La muerte de Artemio Cruz", en:"The Death of Artemio Cruz",        year:1962, country:"MX", price:16},
+  {rank:5,  author:"Juan Rulfo",              title:"Pedro Páramo",        en:"Pedro Páramo",                            year:1955, country:"MX", price:16},
+  {rank:6,  author:"Mario Vargas Llosa",      title:"Conversación en La Catedral", en:"Conversation in the Cathedral",  year:1969, country:"PE", price:18},
+  {rank:7,  author:"Gabriel García Márquez",  title:"El coronel no tiene quien le escriba", en:"No One Writes to the Colonel", year:1961, country:"CO", price:14},
+  {rank:8,  author:"José Donoso",             title:"El obsceno pájaro de la noche", en:"The Obscene Bird of Night",   year:1970, country:"AR", price:19},
+  {rank:9,  author:"Guillermo Cabrera Infante", title:"Tres tristes tigres", en:"Three Trapped Tigers",                year:1967, country:"CU", price:17},
+  {rank:10, author:"Alejo Carpentier",        title:"Los pasos perdidos",  en:"The Lost Steps",                          year:1953, country:"CU", price:16},
+  {rank:11, author:"Carlos Fuentes",          title:"La región más transparente", en:"Where the Air Is Clear",          year:1958, country:"MX", price:15},
+  {rank:12, author:"Mario Vargas Llosa",      title:"La casa verde",       en:"The Green House",                         year:1966, country:"PE", price:16},
+  {rank:13, author:"Julio Cortázar",          title:"Bestiario",           en:"Bestiary (stories)",                      year:1951, country:"AR", price:14},
+  {rank:14, author:"Gabriel García Márquez",  title:"El otoño del patriarca", en:"The Autumn of the Patriarch",         year:1975, country:"CO", price:16},
+  {rank:15, author:"Augusto Roa Bastos",      title:"Yo el Supremo",       en:"I, the Supreme",                          year:1974, country:"PA", price:20},
+  {rank:16, author:"Miguel Ángel Asturias",   title:"El Señor Presidente", en:"Mister President",                        year:1946, country:"GU", price:15},
+  {rank:17, author:"Manuel Puig",             title:"El beso de la mujer araña", en:"Kiss of the Spider Woman",         year:1976, country:"AR", price:15},
+  {rank:18, author:"José Lezama Lima",        title:"Paradiso",            en:"Paradiso",                                year:1966, country:"CU", price:22},
+  {rank:19, author:"Alejo Carpentier",        title:"El siglo de las luces", en:"Explosion in a Cathedral",              year:1962, country:"CU", price:17},
+  {rank:20, author:"Ernesto Sábato",          title:"Sobre héroes y tumbas", en:"On Heroes and Tombs",                  year:1961, country:"AR", price:18},
+];
+
+const ctag = {CO:"tag-co",AR:"tag-ar",MX:"tag-mx",PE:"tag-pe",CU:"tag-cu",PA:"tag-pa",GU:"tag-gu"};
+const cname = {CO:"Colombia",AR:"Argentina",MX:"Mexico",PE:"Peru",CU:"Cuba",PA:"Paraguay",GU:"Guatemala"};
+
+let sortKey = 'rank', sortDir = 1;
+
+function sortBy(k) {
+  if (sortKey === k) sortDir *= -1;
+  else { sortKey = k; sortDir = 1; }
+  document.querySelectorAll('.sort-row button').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('btn-' + k);
+  if (el) el.classList.add('active');
+  renderB();
+}
+
+function renderB() {
+  const q = document.getElementById('search-b').value.toLowerCase();
+  let data = books.filter(b =>
+    b.author.toLowerCase().includes(q) ||
+    b.title.toLowerCase().includes(q) ||
+    b.en.toLowerCase().includes(q)
+  );
+  data = [...data].sort((a,b) => {
+    let va = a[sortKey], vb = b[sortKey];
+    if (typeof va === 'string') return sortDir * va.localeCompare(vb);
+    return sortDir * (va - vb);
+  });
+  document.getElementById('b-tbody').innerHTML = data.map(b => `
+    <tr>
+      <td style="color:var(--color-text-secondary);font-size:12px;">${b.rank}</td>
+      <td>${b.author}</td>
+      <td>
+        <span style="font-weight:500;">${b.title}</span>
+        <span class="title-en">${b.en}</span>
+      </td>
+      <td style="color:var(--color-text-secondary);">${b.year}</td>
+      <td><span class="tag ${ctag[b.country]}" title="${cname[b.country]}">${b.country}</span></td>
+      <td class="price">~$${b.price}</td>
+    </tr>
+  `).join('');
+}
+renderB();
+</script>
