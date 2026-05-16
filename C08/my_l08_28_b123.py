@@ -66,6 +66,6 @@ def reverse_words(filename):
     return [' '.join(reversed(one_line.split()))
             for one_line in open(filename)]
 
-print(reverse_wo("wcfile.txt"))
-print(reverse_words("wcfile.txt"))
-print(list(reverse_words_c("wcfile.txt")))
+print(reverse_wo("../wcfile.txt"))
+print(reverse_words("../wcfile.txt"))
+print(list(reverse_words_c("../wcfile.txt")))

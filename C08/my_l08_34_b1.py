@@ -6,7 +6,7 @@ def gather_shells(filename) -> set[str]:
                  for line in f
                  if not line.startswith(('\n', '#')) }
 
-print(gather_shells("passwd.txt"))
+print(gather_shells("../passwd.txt"))
 
 def gather_shells_c(filename):
     with open(filename) as f:
@@ -19,11 +19,11 @@ def gather_shells_c(filename):
             # line.lstrip().startswith('#') — catches indented comments if needed
         }
 
-print(gather_shells_c("passwd.txt"))
+print(gather_shells_c("../passwd.txt"))
 
 def different_shells(filename):
     return {one_line.split(':')[-1].strip()
             for one_line in open(filename)
             if not one_line.startswith(('\n', '#'))}
 
-print(different_shells("passwd.txt"))
+print(different_shells("../passwd.txt"))

@@ -4,7 +4,7 @@ def ini_to_dict(filename: str) -> dict:
                 for key, value in [line.strip().split("=", 1)
                                    for line in f if "=" in line]}
 
-print(ini_to_dict("config.txt"))
+print(ini_to_dict("../config.txt"))
 
 def ini_to_dict_c(filename: str) -> dict:
     with open(filename) as f:
@@ -15,7 +15,7 @@ def ini_to_dict_c(filename: str) -> dict:
             for key, value in [line.split("=", 1)]
         }
 
-print(ini_to_dict_c("config.txt"))
+print(ini_to_dict_c("../config.txt"))
 
 # str.partition("=") is even cleaner than split("=", 1) here — it always returns exactly
 # three parts (before, sep, after) regardless of whether = is present, so there's no unpack
@@ -34,10 +34,10 @@ def ini_to_dict_c2(filename: str) -> dict:
             if "=" in line and not line.lstrip().startswith("#")
         )
 
-print(ini_to_dict_c2("config.txt"))
+print(ini_to_dict_c2("../config.txt"))
 
 def read_config(filename):
     return {one_line.split('=')[0]: one_line.split('=')[1].strip()
             for one_line in open(filename)}
 
-print(read_config("config.txt"))
+print(read_config("../config.txt"))

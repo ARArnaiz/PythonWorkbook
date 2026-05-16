@@ -9,7 +9,7 @@ def word_length_set(filename) -> set[int]:
             for word in line.split()}
 
 
-print(word_length_set("wcfile.txt"))
+print(word_length_set("../wcfile.txt"))
 
 
 def word_length_set_c(filename) -> set[int]:
@@ -21,7 +21,7 @@ def word_length_set_c(filename) -> set[int]:
             if word.strip(string.punctuation)  # exclude words that are pure punctuation
         }
 
-print(word_length_set_c("wcfile.txt"))
+print(word_length_set_c("../wcfile.txt"))
 
 def word_lengths(filename):
     return {len(one_word)
@@ -29,4 +29,4 @@ def word_lengths(filename):
             for one_word in one_line.split()}
 
 
-print(word_lengths("wcfile.txt"))
+print(word_lengths("../wcfile.txt"))

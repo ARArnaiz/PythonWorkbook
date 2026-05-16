@@ -2,7 +2,7 @@
 def username_uid_dict(lst: list[(str,int)]) -> dict[str, int]:
     return {x[0]: x[1] for x in lst}
 
-with open("passwd.txt") as f:
+with open("../passwd.txt") as f:
     user_lst = []
     for line in f:
         if ":" in line:
@@ -16,7 +16,7 @@ def passwd_to_dict(filename: str) -> dict[str, int]:
        return { parts[0]: int(parts[2]) for line in f if ":" in line
                 for parts in (line.strip().split(":"),) }
 
-print(passwd_to_dict("passwd.txt"))
+print(passwd_to_dict("../passwd.txt"))
 
 def passwd_to_dict_c(filename: str) -> dict[str, int]:
     def parse(line):
@@ -25,4 +25,4 @@ def passwd_to_dict_c(filename: str) -> dict[str, int]:
     with open(filename) as f:
         return dict(parse(line) for line in f if ":" in line)
 
-print(passwd_to_dict_c("passwd.txt"))
+print(passwd_to_dict_c("../passwd.txt"))

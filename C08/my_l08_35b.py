@@ -54,7 +54,7 @@ def gematria_equal_words_l(input_word):
     our_score = gematria_for_l(input_word.lower())
     return [one_word.strip()
             for one_word in
-                open('en_words.txt')
+                open('../en_words.txt')
             if gematria_for_l(one_word.lower()) ==
                 our_score]
 

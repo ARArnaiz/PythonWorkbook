@@ -6,7 +6,7 @@ def load_cities_to_dict(filename) -> dict[str,int]:
     with open(filename) as f:
         return { line['city'] : int(line['population']) for line in json.load(f) }
 
-x = load_cities_to_dict("cities.json")
+x = load_cities_to_dict("../cities.json")
 print(len(x))
 # print(x)
 
@@ -14,7 +14,7 @@ def load_city_state_to_dict(filename) -> dict[str,int]:
     with open(filename) as f:
         return { (line['city'],line['state']) : int(line['population']) for line in json.load(f) }
 
-y = load_city_state_to_dict("cities.json")
+y = load_city_state_to_dict("../cities.json")
 print(len(y))
 # print(y)
 

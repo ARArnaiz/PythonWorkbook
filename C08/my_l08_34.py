@@ -14,7 +14,7 @@ def get_sv(filename: str, lang: str) -> set:
     print(f"There are {len(result)} words that contain all vowels.")
     return result
 
-en_results_sv = get_sv('en_words.txt', 'en')
+en_results_sv = get_sv('../en_words.txt', 'en')
 print(len(en_results_sv))
 
 def get_sv_l(filename):
@@ -24,7 +24,7 @@ def get_sv_l(filename):
              for word in open(filename)
              if vowels < set(word.lower())}
 
-en_results_sv = get_sv_l('en_words.txt')
+en_results_sv = get_sv_l('../en_words.txt')
 print(len(en_results_sv))
 
 def get_sv_vg(filename: str, lang: str) -> set:

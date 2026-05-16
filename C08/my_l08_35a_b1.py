@@ -10,5 +10,5 @@ def read_config(filename):
     return {one_line.split('=')[0]: one_line.split('=')[1].strip()
             for one_line in open(filename)}
 
-print(read_config("config_l.txt"))
-print(read_config("config.txt"))
+print(read_config("../config_l.txt"))
+print(read_config("../config.txt"))

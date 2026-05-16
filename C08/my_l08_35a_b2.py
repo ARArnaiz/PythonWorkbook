@@ -18,5 +18,5 @@ def read_config(filename):
             for one_line in open(filename)
             if one_line.split('=')[1].strip().isdigit()}
 
-print(read_config("config_l.txt"))
-print(read_config("config.txt"))
+print(read_config("../config_l.txt"))
+print(read_config("../config.txt"))

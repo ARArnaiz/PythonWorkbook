@@ -3,7 +3,7 @@ def show_certain_lines(filename: str) -> list[str]:
         return [line for line in f if set('AaEeIiOoUu') & set(line) and len(line) > 20]
 
 
-for item in show_certain_lines("wcfile.txt"):
+for item in show_certain_lines("../wcfile.txt"):
     print(item, end='')
 
 VOWELS = frozenset('aeiouAEIOU')
@@ -16,7 +16,7 @@ def lines_with_vowel_and_length(filename: str, min_length: int = 20) -> list[str
             if len(line) >= min_length and any(c in VOWELS for c in line)
         ]
 
-for item in lines_with_vowel_and_length("wcfile.txt"):
+for item in lines_with_vowel_and_length("../wcfile.txt"):
     print(item, end="")
 
 
@@ -27,5 +27,5 @@ def lines_with_1v20c(filename):
             len(set('aeiou') & set(one_line)) >= 1]
 
 
-for item in lines_with_1v20c("wcfile.txt"):
+for item in lines_with_1v20c("../wcfile.txt"):
     print(item, end='')

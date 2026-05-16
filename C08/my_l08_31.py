@@ -58,4 +58,4 @@ translated into Pig Latin.
                     for one_line in open(filename)
                     for one_word in one_line.split())
 
-print(plfile("wcfile.txt"))
+print(plfile("../wcfile.txt"))
