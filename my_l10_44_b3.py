@@ -5,7 +5,7 @@ class Animal:
 
     def __init__(self, color):
         self.color = color
-        self.SPECIES = self.__class__.__name__.lower()
+        self.species = self.__class__.__name__.lower()
 
     def __repr__(self):
         return f"{self.SOUND} {self.color} {self.SPECIES} {self.LEGS} legs"
