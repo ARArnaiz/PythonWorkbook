@@ -129,7 +129,7 @@ class Zoo:
         return [animal for cage in self.cages for animal in cage.animals if all(getattr(animal, key) == value for key, value in properties.items())]
 
     def get_animals(self, **kwargs):
-       """Claude on Lerner's"""
+        """Claude on Lerner's"""
         valid = {k: v for k, v in kwargs.items() if k in ('color', 'LEGS')}
         if not valid:
             raise ValueError("Must specify at least one of: color, LEGS")
